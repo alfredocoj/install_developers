@@ -213,3 +213,9 @@ else
 
   ls -la /home/$(whoami)/.ssh/id_rsa*
 fi
+
+sudo apt-get install cowsay
+
+cowsay -f ghostbusters "Você: - Terminou? Agora eu posso trabalhar?..."
+
+cowsay "Sim, você pode"
