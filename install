@@ -3,38 +3,44 @@
 # Passo a passo para utilizar este script.
 # 1. Abra o terminal linux através do atalho: Crt+ALT+T
 # 2. No terminal, execute o comando: $ sudo su
-# 3. Copie esse arquivo para a pasta de sua preferência; ex.: $ cp install /home/seu_usuario/
-# 4. Acesse a pasta onde está o arquivo install; ex.: $ cd /home/seu_usuario/
+# 3. Copie esse arquivo para a pasta de sua preferência; ex.: $ cp -R script_instalacao_dev /home/seu_usuario/
+# 4. Acesse a pasta onde está o arquivo install; ex.: $ cd /home/seu_usuario/script_instalacao_dev
 # 5. Execute o comando: $ chmod +x install
-# 5. Execute o script através do comando: sudo su; ./install
+# 5. Execute o script através do comando: sudo su; ./install 5.9.3
 
 
-usage="$(basename "$0") [-h] [-k] [-s n] -- script for basic installation of It Happens development environment.
+function usage() {
+   sudo apt-get install toiletapt
+   sudo apt-get install figlet
 
-where:
-    -h  show this help text
-    -k  create key ssh
-    -s  set the seed value (default: 42)"
+   toilet -f smmono9 -F metal "DevInstaller"
 
-seed=42
+   toilet -f term -F crop $(basename "$0")' [-h] [-k] [-s n] [QT_VERSION] -- script for basic installation of It Happens development environment.'
+
+   toilet -f term -F crop 'where:'
+   toilet -f term -F crop '     -h  show this help text'
+   toilet -f term -F crop '     -k  create key ssh to access to git.mateus'
+   toilet -f term -F crop 'QT_VERSION  set the QT version that you will use. Example, to QT VERSION 5.9.3, so execute: ./install 5.9.3'
+
+}
+
+if [ -z $1 ]; then
+   usage
+   exit 1
+fi
+
 export sshParam=0
 
 while getopts ':hks:' option; do
   case "$option" in
-    h) echo "$usage"
+    h) usage
        exit
        ;;
     k) echo "O script irá criar automaticamente sua chave ssh"
         sshParam=1
        ;;
-    s) seed=$OPTARG
-       ;;
-    :) printf "missing argument for -%s\n" "$OPTARG" >&2
-       echo "$usage" >&2
-       exit 1
-       ;;
    \?) printf "illegal option: -%s\n" "$OPTARG" >&2
-       echo "$usage" >&2
+       usage >&2
        exit 1
        ;;
   esac
