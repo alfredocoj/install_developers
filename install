@@ -10,7 +10,7 @@
 
 
 function usage() {
-   sudo apt-get install toiletapt
+   sudo apt-get install toilet
    sudo apt-get install figlet
 
    toilet -f smmono9 -F metal "DevInstaller"
