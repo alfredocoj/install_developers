@@ -10,8 +10,17 @@
 
 
 function usage() {
-   sudo apt-get install toilet
-   sudo apt-get install figlet
+
+   if ! sudo apt list --installed 2> /dev/null | grep -i toilet
+   then
+    sudo apt-get install toilet -y
+   fi
+
+   if ! sudo apt list --installed 2> /dev/null | grep -i figlet
+   then
+    sudo apt-get install figlet -y
+   fi
+   
 
    toilet -f smmono9 -F metal "DevInstaller"
 
@@ -149,7 +158,12 @@ then
 
   sudo apt-get update
 
-  if ! sudo apt-get install openjdk-8-jdk -y
+  sudo apt-get install software-properties-common debconf-utils -y
+
+  echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+  echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
+
+  if ! sudo apt-get install openjdk-8-jdk-headless openjdk-8-jdk -y
   then
     printf "Não foi possível instalar o terminal openjdk-8-jdk\n\r"
     exit 1
@@ -199,6 +213,8 @@ then
   wget https://download.qt.io/archive/qt/${QT_VERSION_MAJOR}/${QT_VERSION}/qt-opensource-linux-x64-${QT_VERSION}.run
 
   chmod +x qt-opensource-linux-x64-${QT_VERSION}.run
+
+  wget https://raw.githubusercontent.com/alfredocoj/install_developers/master/qt-noninteractive.qs
 
   ./qt-opensource-linux-x64-${QT_VERSION}.run --script qt-noninteractive.qs  #-platform minimal
 
