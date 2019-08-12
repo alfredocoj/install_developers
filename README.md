@@ -1,14 +1,14 @@
 # script_instalacao_dev
 
-Script para Instalação de pacotes necessários para os desenvolvedores da It Happens.
+Script to Install Packages Required for It Happens Developers.
 
-## Passo a passo
+## Step by step
 
-1. Baixe o repositório
-2. Descompacte-o.
-3. Abra o terminal linux através do atalho: Crt+ALT+T
-4. No terminal, execute o comando: `$ sudo su`
-5. Copie esse arquivo para a pasta de sua preferência; ex.: `# cp -R script_install_dev /home/seu_usuario/`
-6. Acesse a pasta onde está o arquivo install; ex.: `# cd /home/seu_usuario/script_install_dev`
-7. Execute o comando: `# chmod +x install`
-8. Execute o script através do comando: ./install QT_VERSION; exemplo: `# ./install 5.9.3`
+1. Download the repository
+2. Unzip it.
+3. Open the linux terminal via the shortcut: Crt + ALT + T
+4. At the terminal, run the command: `$ sudo su`
+5. Copy this file to your preferred folder; eg `# cp -R script_install_dev /home/your_user/`
+6. Access the folder where the install file is; eg `# cd / home / your_user / script_install_dev`
+7. Run the command: `# chmod + x install`
+8. Run the script through the command: ./install QT_VERSION; example: `# ./install 5.9.3`
