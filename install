@@ -97,7 +97,7 @@ then
   printf "Instalação das libs libdw1 libdw-dev finalizada...\n\r"
 
   # bibliotecas para exibição de gráficos opengl para o qtcreator funcionar a compilação
-  if ! sudo apt install libgl1-mesa-dev -y
+  if ! sudo apt install libgl1-mesa-dev qtdeclarative5-dev qml-module-qtquick-controls2 -y
   then
     printf "Não foi possível instalar as bibliotecas para exibição gráficas\n\r"
     exit 1
@@ -218,6 +218,12 @@ then
 
   ./qt-opensource-linux-x64-${QT_VERSION}.run --script qt-noninteractive.qs  #-platform minimal
 
+
+  echo "Digite seu CPF sem pontos e ífen"
+  read -r CPF
+
+  smbget -R -U "${CPF}" smb://192.168.6.86/ithappens/app/AquaDataStudio16
+
 else
   printf 'Criando sua chave ssh...\r\n';
 
@@ -230,8 +236,19 @@ else
   ls -la /home/$(whoami)/.ssh/id_rsa*
 fi
 
-sudo apt-get install cowsay
+
+if ! sudo apt list --installed 2> /dev/null | grep -i cowsay
+then
+  sudo apt-get install -y cowsay
+fi
+
+
+echo "Aperte <ENTER> para continuar..."
+read
 
 cowsay -f ghostbusters "Você: - Terminou? Agora eu posso trabalhar?..."
+
+echo "Aperte <ENTER> para continuar..."
+read
 
 cowsay "Sim, você pode"
