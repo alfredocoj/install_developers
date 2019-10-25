@@ -137,7 +137,7 @@ then
   fi
   printf "Instalação do git finalizada...\n\r"
 
-  if ! sudo apt-get install yakuake -y
+  if ! sudo apt-get install libkf5globalaccel-bin yakuake -y
   then
     printf "Não foi possível instalar o terminal yakuake\n\r"
     exit 1
