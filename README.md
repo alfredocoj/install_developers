@@ -1,6 +1,6 @@
 # script_instalacao_dev
 
-Script to Install Packages Required for It Happens Developers.
+Script to Install Packages Required for Java and QT Developers.
 
 ## Step by step
 
