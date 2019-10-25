@@ -10,5 +10,5 @@ Script to Install Packages Required for Java and QT Developers.
 4. At the terminal, run the command: `$ sudo su`
 5. Copy this file to your preferred folder; eg `# cp -R install /home/your_user/`
 6. Access the folder where the install file is; eg `# cd /home/your_user/install`
-7. Run the command: `# chmod + x install.sh`
+7. Run the command: `# chmod + x install`
 8. Run the script through the command: ./install QT_VERSION; example: `# ./install 5.9.3`
