@@ -176,6 +176,13 @@ then
     exit 1
   fi
   printf "Instalação do openssh-server...\n\r"
+  
+  if ! sudo apt-get install wireguard -y
+  then
+    printf "Não foi possível instalar o terminal wireguard\n\r"
+    exit 1
+  fi
+  printf "Instalação do wireguard...\n\r"
 
   sudo service ssh start
 
