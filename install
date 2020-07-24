@@ -184,7 +184,7 @@ then
   fi
   printf "Instalação do wireguard...\n\r"
   
-  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   export LSB_ETC_LSB_RELEASE=/etc/upstream-release/lsb-release
   version=$(lsb_release -cs)
