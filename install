@@ -183,6 +183,28 @@ then
     exit 1
   fi
   printf "Instalação do wireguard...\n\r"
+  
+  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  export LSB_ETC_LSB_RELEASE=/etc/upstream-release/lsb-release
+  version=$(lsb_release -cs)
+  sudo add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${version} stable"
+  sudo apt update
+  
+  if ! sudo apt-get install docker-ce  -y
+  then
+    printf "Não foi possível instalar o terminal docker-ce\n\r"
+    exit 1
+  fi
+  printf "Instalação do docker-ce...\n\r"
+  
+  if ! sudo apt-get install smbclient -y
+  then
+    printf "Não foi possível instalar o terminal smbclient\n\r"
+    exit 1
+  fi
+  printf "Instalação do smbclient...\n\r"
 
   sudo service ssh start
 
@@ -228,7 +250,9 @@ then
 
   echo "Digite seu CPF sem pontos e ífen"
   read -r CPF
-
+  
+  sudo mkdir -p /opt/AquaDataStudio16
+  cd /opt/AquaDataStudio16
   smbget -R -U "${CPF}" smb://192.168.6.86/ithappens/app/AquaDataStudio16
 
 else
