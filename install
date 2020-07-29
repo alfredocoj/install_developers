@@ -89,9 +89,9 @@ then
   printf "Instalação dos drivers sqlserver, postgresql finalizada...\n\r"
 
   # stack trace do compilador do c++
-  if ! sudo apt install libx11-xcb-dev libdw1 libdw-dev -y
+  if ! sudo apt install libx11-xcb-dev libdw1 libdw-dev libgl-dev -y
   then
-    printf "Não foi possível instalar as libs libdw1 libdw-dev\n\r"
+    printf "Não foi possível instalar as libs libdw1 libdw-dev libgl-dev \n\r"
     exit 1
   fi
   printf "Instalação das libs libdw1 libdw-dev finalizada...\n\r"
