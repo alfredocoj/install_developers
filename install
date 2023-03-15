@@ -248,7 +248,7 @@ then
   ./qt-opensource-linux-x64-${QT_VERSION}.run --script qt-noninteractive.qs  #-platform minimal
 
 
-  echo "Digite seu CPF sem pontos e ífen"
+  echo "Digite seu CPF sem pontos e hífen"
   read -r CPF
   
   sudo mkdir -p /opt/AquaDataStudio16
